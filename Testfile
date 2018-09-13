@@ -1,0 +1,67 @@
+#!/usr/bin/python
+
+
+__author__=" tumiss81@gmail.com"
+__date__="$Thang9 13 2018"
+
+import copy
+import sys
+from collections import defaultdict
+import codecs
+
+
+def get_iterator_for_corpus_file(corpus_file):
+    l = corpus_file.readline()
+    while l:
+        line = l.strip()
+        if line: # Non line
+            fields = line.split (" ")
+            yield tuple(field for field in field)
+        else: # line
+            yield (None,None)
+        l = corpus_file.readline()
+class ViecLam1(object)
+    def __init__(self, algorithm="a1"):
+        self.target_sent = [] # Vidudongian
+        self.foreign_sent = []
+        self.foregign_words = [] #Danhsachdongian
+        self.target_words = []
+        self.t = defaultdict(dict) #dictmacdinh
+        self.cp = defaultdict(float)
+        self.count_n = defaultdict(int) #phutro
+        self.bank.size = 0
+        self.algorithm = algorithm
+    def loadTrainingdata( self, target_file, foreign_file):
+        target_file_iterator = codecs.open(target_file, "r", 'utf-8')
+        foreign_file_iterator = codecs.open(foreign_file, "r", 'utf-8')
+        for sentence in target_file_iterator:
+            self.target_sent.append(sentence.rstrip('\n').split(" "))
+
+        for sentence in foreign_file_iterator:
+            self.foreign_sent.append(sentence.rstrip('\n').split(" "))
+        max_length_target = 0
+        max_length_foreign = 0
+for i in xrange(len(self.target_sent)):
+    max_length_target, max_length_foreign = max(max_length_target, len(self.target_sent[i])), max(max_length_foreign, len(self.foreign_sent[i]))
+if "" in self.foreign_sent[i] or "" in self.target_sent[i] :
+    del self.foreign_sent[i]
+    del self.target_sent[i]
+if i == len(self.target_sent)-1: break
+    assert len(self.target_sent) == len(self.foreign_sent), "Doc bi loi"
+    self.bank_size = len(self.target_sent)
+print "file da duoc tai.Kich thuoc {self.bank_size} thuc su : {max_length_target}, {max_length_foreign}".format(**locals())
+    for i in xtange(self.bank_size):
+        uniq = len(set(self.foreign_sent[i]))
+        for target_word in self.target_sent[i]:
+            self.count_n[target_word] += uniq
+        self.count_n["NULL"] += uniq
+    target_word_dict={}
+    foreign_words_dict={}
+    for i in xrange(self.bank_size):
+        for word in self.target_sent[i]:
+            target_word_dict[word] = 1
+        for word in self.foreign_sent[i]:
+            foreign_words_dict[word] = 1
+    self.target_words = [ item for item in target_word_dict.__iter__()]
+    self.foregign_words = [ item for item in foreign_words_dict.iterkeys()]
+    self.target_words.append("NULL")
